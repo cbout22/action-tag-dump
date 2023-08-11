@@ -1,0 +1,23 @@
+{
+  "name": "action-tag-dump",
+  "version": "1.0.0",
+  "description": "A GitHub Action that automatically generates software version numbers based on the Semantic Versioning (SemVer) specification and conventional commit messages.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cbout22/action-tag-dump.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cbout22/action-tag-dump/issues"
+  },
+  "homepage": "https://github.com/cbout22/action-tag-dump#readme",
+  "dependencies": {
+    "simple-git": "^3.19.1"
+  }
+}
