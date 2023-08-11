@@ -1,0 +1,30 @@
+name: Release
+
+on:
+  push: {}
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # Ensure all git history is checked out for analyzing
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Run Release Action
+      id: versionning
+      run: node main.js
+
+    - name: Push New Tag
+      run: |
+        git tag ${{ steps.versionning.outputs.newVersion }}
+        git push origin ${{ steps.versionning.outputs.newVersion }}
