@@ -2,10 +2,18 @@ const git = require('simple-git');
 
 async function getLastTag() {
     const gitLog = await git().tags();
+    const lastTag = gitLog.latest;
+    if (!lastTag) {
+        console.log('No tags found, using 0.0.0');
+        return '0.0.0';
+    }
     return gitLog.latest;
 }
 
 async function getCommitsSinceLastTag(lastTag) {
+    if (lastTag === '0.0.0') {
+        return await git().log();
+    }
     return await git().log({ from: lastTag });
 }
 
@@ -40,6 +48,7 @@ async function main() {
     const bump = determineBumpType(commits);
     const newVersion = incrementVersion(lastTag, bump);
     console.log(`Bumping from ${lastTag} to ${newVersion}`);
+    return newVersion;
 }
 
 main();
