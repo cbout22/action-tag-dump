@@ -24,5 +24,5 @@ inputs:
     default: '^(fix|perf|docs|style|refactor|test|build)(\(([A-Z]|[a-z])+\-\d+\))?:'
 
 runs:
-  using: 'node14'
+  using: 'node12'
   main: 'dist/index.js'
