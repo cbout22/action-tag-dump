@@ -26,4 +26,3 @@ inputs:
 runs:
   using: 'node14'
   main: 'dist/index.js'
-```
