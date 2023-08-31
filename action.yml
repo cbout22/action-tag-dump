@@ -1,0 +1,29 @@
+name: 'Tag dumper'
+description: 'Dump tags from a repository according to commit message'
+author: 'Clement Bout'
+
+inputs:
+  GITHUB_TOKEN:
+    description: 'GitHub token'
+    required: true
+  TAG_PREFIX:
+    description: 'Tag prefix for versioning ("v" by default)'
+    required: false
+    default: 'v'
+  MAJOR_REGEX:
+    description: 'Regex to match breaking change commit message'
+    required: false
+    default: '^(BREAKING CHANGE(\(([A-Z]|[a-z])+\-\d+\))??:|(feat|fix|perf|docs|style|refactor|test|build)(\(([A-Z]|[a-z])+\-\d+\))?!:)'
+  MINOR_REGEX:
+    description: 'Regex to match minor commit message'
+    required: false
+    default: '^(feat)(\(([A-Z]|[a-z])+\-\d+\))?:'
+  PATCH_REGEX:
+    description: 'Regex to match patch commit message'
+    required: false
+    default: '^(fix|perf|docs|style|refactor|test|build)(\(([A-Z]|[a-z])+\-\d+\))?:'
+
+runs:
+  using: 'node14'
+  main: 'dist/index.js'
+```

@@ -19,5 +19,12 @@
   "homepage": "https://github.com/cbout22/action-tag-dump#readme",
   "dependencies": {
     "simple-git": "^3.19.1"
+  },
+  "devDependencies": {
+    "@actions/core": "^1.10.0",
+    "@vercel/ncc": "^0.36.1"
+  },
+  "scripts": {
+    "build": "ncc build src/action.js -o dist"
   }
 }
