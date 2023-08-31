@@ -4,7 +4,8 @@
   "description": "A GitHub Action that automatically generates software version numbers based on the Semantic Versioning (SemVer) specification and conventional commit messages.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "ncc build src/action.js -o dist"
   },
   "repository": {
     "type": "git",
@@ -23,8 +24,5 @@
   "devDependencies": {
     "@actions/core": "^1.10.0",
     "@vercel/ncc": "^0.36.1"
-  },
-  "scripts": {
-    "build": "ncc build src/action.js -o dist"
   }
 }
